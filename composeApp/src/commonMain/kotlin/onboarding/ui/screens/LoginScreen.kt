@@ -36,7 +36,7 @@ fun LoginScreen(
     var otp by remember { mutableStateOf("") }
     val uiState by viewModel.uiState.collectAsState()
 
-    LaunchedEffect(uiState.isLoggedIn) {
+    LaunchedEffect(uiState) {
         if (uiState.isLoggedIn) {
             onLoginSuccess()
         }

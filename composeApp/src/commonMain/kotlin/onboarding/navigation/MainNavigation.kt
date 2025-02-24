@@ -40,16 +40,17 @@ fun MainNavigation(isLoading: MutableState<Boolean>) {
     LaunchedEffect(Unit) {
         try {
             userRepository.getUserProfile().collect { userProfile ->
-                delay(5000)
+                //delay(5000)
                 startDestination =
                     if (userProfile != null) Screen.Home.route else Screen.Login.route
                 println("Start try $startDestination")
-                delay(5000)
+                //delay(5000)
                 isLoading.value = false
             }
         } catch (e: Exception) {
             isLoading.value = false
             startDestination = Screen.Login.route
+            println(e.toString())
         }
     }
 
@@ -87,5 +88,4 @@ fun MainNavigation(isLoading: MutableState<Boolean>) {
             CircularProgressIndicator()
         }
     }
-
 }

@@ -19,12 +19,11 @@ class LoginViewModel(
     init {
         viewModelScope.launch {
             userRepository.getUserProfile().collect { userProfile ->
-                delay(10000)
                 _uiState.value = _uiState.value.copy(isLoggedIn = userProfile != null)
                 println("User: $userProfile")
             }
         }
-    }
+    }// app works without this , i kept this for listening any other-viewmodel changes the userprofile
 
     fun login(mobileNumber: String, otp: String) {
         if (mobileNumber.isBlank() || otp.isBlank()) {
@@ -37,7 +36,7 @@ class LoginViewModel(
             return
         }
 
-        updateState(isLoading = true)
+        updateState(isLoggedIn = true, error = null)
 
         viewModelScope.launch {
             runCatching {

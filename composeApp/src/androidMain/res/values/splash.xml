@@ -3,6 +3,6 @@
     <style name="Theme.Myapp.MySplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#FFFFFF</item>
         <item name="postSplashScreenTheme">@android:style/Theme.Material.Light.NoActionBar</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_flight_takeoff_24</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/layoverd_splash</item>
     </style>
 </resources>

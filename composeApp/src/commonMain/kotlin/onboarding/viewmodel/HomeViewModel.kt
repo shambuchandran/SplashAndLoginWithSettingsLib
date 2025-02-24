@@ -12,8 +12,9 @@ import onboarding.domain.UserRepository
 class HomeViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {
-    val userProfile: StateFlow<UserProfile?> = userRepository.getUserProfile()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
+//    val userProfile: StateFlow<UserProfile?> = userRepository.getUserProfile()
+//        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
+    val userProfile = userRepository.getUserProfile()
 
     fun logout(onLogout:() -> Unit) {
         viewModelScope.launch {
